@@ -10,13 +10,12 @@ import AssetGenerator from './util/AssetGenerator';
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 const TOTAL_MINT_COUNT = 250;
-const CONTRACT_ADDRESS = '0x5eEfe27A02f5cCF9797524ef09232fA217e52b9A';
+const CONTRACT_ADDRESS = '0x0cdF3fC04e833D1b7D7A3bE8604C977eb94f3bba';
 
 /*
     TODO:
     - Redeploy contract
     - Add placeholder image for optimistic UI
-    - Query contract to see if NFT name is already minted
     - Add page for showing all mints
     - Add FAQ section
 */
