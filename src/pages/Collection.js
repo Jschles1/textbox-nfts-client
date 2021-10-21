@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Text, Skeleton } from '@chakra-ui/react';
+import { Flex, Text, Skeleton, Link } from '@chakra-ui/react';
 import CollectionItem from '../components/CollectionItem';
 import { useGetMintedNFTsQuery } from '../store/api/mintedNFTsApi';
 import config from '../config';
@@ -35,6 +35,16 @@ const Collection = () => {
                 mb={4}
             >
                 The Current Textbox NFT Collection
+            </Text>
+            <Text textAlign="center" mb={6} fontSize="24px">
+                Total NFT&apos;s minted: {collectionItems && collectionItems.length}
+            </Text>
+
+            <Text textAlign="center" mb={6} fontSize="24px">
+                See the full collection&nbsp;
+                <Link href={`https://testnets.opensea.io/collection/textbox-nft-collection-v2`} target="_blank">
+                    here.
+                </Link>
             </Text>
             <Flex flexWrap="wrap" justifyContent="start">
                 {collectionItems}

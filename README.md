@@ -1,11 +1,15 @@
-# _buildspace Mint Your Own NFT Collection
+# Textbox NFT Collection
 
 ### **Welcome 👋**
-To get started with this course, clone this repo and follow these commands:
+This projects shows an example end to end flow of minting an NFT on the ethereum blockchain.
+
+To get started clone this repo and follow these commands:
 
 1. Run `npm install` at the root of your directory
-2. Run `npm run start` to start the project
-3. Start coding!
+2. Run `npm start` to start the project
 
-### **Questions?**
-Have some questions make sure you head over to your [_buildspace Dashboard](https://app.buildspace.so/courses/CO961ddb5f-f428-4608-9949-a9a2f461eb3f) and link your Discord account so you can get access to helpful channels and your instructor!
+## Prerequisities
+
+- This application uses Metamask to connect to the NFT smart contract on the Ethereum blockchain. You can download Metamask [here.](https://metamask.io/)
+- This is NOT a real NFT project running on the Ethereum mainnet, but instead runs on the Ethereum Rinkeby test network. This application will not function unless your Metamask wallet is connected via the Rinkeby network.
+- To use this application while on the Rinkeby network, you will need test ether provided by a faucet. You can get test ether on the Rinkeby network [here.](https://app.mycrypto.com/faucet)
