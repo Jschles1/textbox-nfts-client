@@ -50,22 +50,9 @@ const Navbar = () => {
         const { ethereum } = window;
 
         if (!ethereum) {
-            console.log('Make sure you have metamask!');
+            alert('Please install Metamask to use this app.');
             return;
-        } else {
-            console.log('We have the ethereum object', ethereum);
         }
-
-        // // connect chain ID
-        // let chainId = await ethereum.request({ method: 'eth_chainId' });
-        // console.log('Connected to chain ' + chainId);
-
-        // // String, hex code of the chainId of the Rinkebey test network
-        // const rinkebyChainId = '0x4';
-        // if (chainId !== rinkebyChainId) {
-        //     alert('Please connect a wallet on the Rinkeby test network!');
-        //     return;
-        // }
 
         /*
          * Check if we're authorized to access the user's wallet
@@ -77,7 +64,6 @@ const Navbar = () => {
          */
         if (accounts.length !== 0) {
             const account = accounts[0];
-            console.log('Found an authorized account:', account);
             dispatch(setCurrentAccount(account));
             getContract(dispatch);
         } else {
@@ -90,18 +76,7 @@ const Navbar = () => {
             const { ethereum } = window;
 
             if (!ethereum) {
-                alert('Get MetaMask!');
-                return;
-            }
-
-            // connect chain ID
-            let chainId = await ethereum.request({ method: 'eth_chainId' });
-            console.log('Connected to chain ' + chainId);
-
-            // String, hex code of the chainId of the Rinkebey test network
-            const rinkebyChainId = '0x4';
-            if (chainId !== rinkebyChainId) {
-                alert('Please connect a wallet on the Rinkeby test network!');
+                alert('Please install Metamask to use this app.');
                 return;
             }
 
@@ -115,7 +90,6 @@ const Navbar = () => {
             /*
              * Boom! This should print out public address once we authorize Metamask.
              */
-            console.log('Connected', accounts[0]);
             dispatch(setCurrentAccount(accounts[0]));
             getContract(dispatch);
         } catch (error) {
@@ -158,13 +132,14 @@ const Navbar = () => {
     return (
         <>
             <Flex
-                bgColor="#121f2f"
+                bgColor="main.200"
                 width="100%"
                 p={2}
                 h="60px"
                 alignItems="center"
                 boxShadow="sm"
-                borderBottom="1px solid #394a60"
+                borderWidth="1px"
+                borderColor="main.300"
             >
                 <Flex maxW="1440px" justifyContent="space-between" alignItems="center" width="100%" mx="auto" px={4}>
                     <Text
@@ -192,14 +167,14 @@ const Navbar = () => {
                                     as="button"
                                     py={2}
                                     px={3}
-                                    bgColor="#121f2f"
+                                    bgColor="main.200"
                                     borderRadius="100px"
                                     _focus={{
                                         boxShadow: 'none',
                                     }}
                                     _hover={{
                                         textDecoration: 'none',
-                                        backgroundColor: '#0d1116',
+                                        backgroundColor: 'main.100',
                                     }}
                                     onClick={onAddressClick}
                                 >
@@ -215,13 +190,13 @@ const Navbar = () => {
                 </Flex>
             </Flex>
 
-            <Modal isOpen={isModalOpen} onClose={onModalClose} border="1px solid #394a60">
+            <Modal isOpen={isModalOpen} onClose={onModalClose} borderWidth="1px" borderColor="main.300">
                 <ModalOverlay />
-                <ModalContent border="1px solid #394a60">
+                <ModalContent borderWidth="1px" borderColor="main.300">
                     <ModalCloseButton />
                     <ModalBody
                         py={12}
-                        bgColor="#0d1116"
+                        bgColor="main.100"
                         borderTopRightRadius="lg"
                         borderTopLeftRadius="lg"
                         textAlign="center"
@@ -244,7 +219,7 @@ const Navbar = () => {
                             <Link
                                 display="block"
                                 href={`https://rinkeby.etherscan.io/address/${currentAccount}`}
-                                _target="blank"
+                                target="_blank"
                                 _focus={{
                                     boxShadow: 'none',
                                 }}
@@ -259,6 +234,7 @@ const Navbar = () => {
                                 as="button"
                                 display="block"
                                 onClick={onCopyAddress}
+                                target="_blank"
                                 _focus={{
                                     boxShadow: 'none',
                                 }}
@@ -272,7 +248,7 @@ const Navbar = () => {
                     </ModalBody>
 
                     <ModalFooter
-                        bgColor="#121f2f"
+                        bgColor="main.200"
                         borderBottomRadius="lg"
                         borderBottomLeftRadius="lg"
                         textAlign="center"

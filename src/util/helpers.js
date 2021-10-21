@@ -1,14 +1,13 @@
 import { ethers } from 'ethers';
 import myEpicNft from './TextBox.json';
 import { setNetwork, setCurrentAccount } from '../store/reducers/web3Reducer';
+import config from '../config';
 
-const CONTRACT_ADDRESS = '0xeE2AA996B91154c1cbbc132CC26b9A108F32EAbc';
+const { CONTRACT_ADDRESS } = config;
 
 export const getWeb3Provider = (dispatch) => {
     const { ethereum } = window;
     const provider = new ethers.providers.Web3Provider(ethereum, 'any');
-
-    console.log('provider', provider);
 
     provider.on('network', (newNetwork, oldNetwork) => {
         // When a Provider makes its initial connection, it emits a "network"

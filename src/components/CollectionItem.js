@@ -12,14 +12,14 @@ const CollectionItem = ({ image, name, owner, href }) => {
             flexBasis="19%"
             mb={4}
             boxShadow="sm"
-            borderColor="#394a60"
+            borderColor="main.300"
             mr="1%"
         >
             <Link href={href} target="_blank">
                 <Image src={image} alt={name} />
             </Link>
 
-            <Box p={6} bgColor="#121f2f">
+            <Box p={6} bgColor="main.200">
                 {/* <Box display="flex" alignItems="baseline">
                     <Badge borderRadius="full" px="2" colorScheme="teal">
                         New

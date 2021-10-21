@@ -2,8 +2,9 @@ import React from 'react';
 import { Flex, Text, Skeleton } from '@chakra-ui/react';
 import CollectionItem from '../components/CollectionItem';
 import { useGetMintedNFTsQuery } from '../store/api/mintedNFTsApi';
+import config from '../config';
 
-const CONTRACT_ADDRESS = '0xeE2AA996B91154c1cbbc132CC26b9A108F32EAbc';
+const { CONTRACT_ADDRESS } = config;
 
 const Collection = () => {
     const { data, error, isLoading } = useGetMintedNFTsQuery(CONTRACT_ADDRESS);
@@ -23,7 +24,7 @@ const Collection = () => {
     ));
 
     return (
-        <Skeleton startColor="#394a60" endColor="#121f2f" isLoaded={!isLoading}>
+        <Skeleton startColor="main.300" endColor="main.200" isLoaded={!isLoading}>
             <Text
                 textAlign="center"
                 fontWeight="bold"

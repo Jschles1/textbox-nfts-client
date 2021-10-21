@@ -21,8 +21,6 @@ const AssetGenerator = {
         if (mintedNfts && mintedNfts.length) {
             takenNames = mintedNfts.map((nft) => nft.name);
 
-            console.log('taken names', takenNames);
-
             if (takenNames.includes(combinedWord)) {
                 return this.generateWord(contractAddress);
             } else {
@@ -41,7 +39,6 @@ const AssetGenerator = {
         const color = this.pickRandomWord(colors);
 
         const finalSvg = svgPartOne + color + svgPartTwo + combinedWord + '</text></svg>';
-        console.log('finalSvg', finalSvg);
 
         const asset = {
             name: combinedWord,

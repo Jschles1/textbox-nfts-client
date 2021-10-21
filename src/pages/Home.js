@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { NFTStorage } from 'nft.storage';
-import { Box, Flex, Image, Link, Text } from '@chakra-ui/react';
+import { Box, Flex, Link, Text } from '@chakra-ui/react';
 import Button from '../components/Button';
-import twitterLogo from '../assets/twitter-logo.svg';
 import AssetGenerator from '../util/AssetGenerator';
 import { getContract } from '../util/helpers';
+import config from '../config';
+
+const { CONTRACT_ADDRESS, TOTAL_MINT_COUNT, NFT_STORAGE_KEY } = config;
 
 // Constants
 const TWITTER_HANDLE = '_buildspace';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const TOTAL_MINT_COUNT = 250;
-const CONTRACT_ADDRESS = '0xeE2AA996B91154c1cbbc132CC26b9A108F32EAbc';
 
 const SubText = (props) => (
     <Text {...props} fontSize="25px">
@@ -49,13 +49,11 @@ const Home = () => {
                 const asset = await AssetGenerator.generate(contract.address);
 
                 const ipfsClient = new NFTStorage({
-                    token: process.env.REACT_APP_NFT_STORAGE_KEY,
+                    token: NFT_STORAGE_KEY,
                 });
                 const metadata = await ipfsClient.store(asset);
                 // our smart contract already prefixes URIs with "ipfs://", so we remove it before calling the `makeAnEpicNFT` function
                 const metadataURI = metadata.url.replace(/^ipfs:\/\//, '');
-
-                console.log('metadata URI', metadataURI);
 
                 console.log('Going to pop wallet now to pay gas...');
                 let nftTxn = await contract.makeAnEpicNFT(metadataURI);
@@ -69,8 +67,6 @@ const Home = () => {
                 setOpenSeaLink(`https://testnets.opensea.io/assets/${CONTRACT_ADDRESS}/${totalMints}`);
 
                 console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${nftTxn.hash}`);
-            } else {
-                console.log("Ethereum object doesn't exist!");
             }
         } catch (error) {
             setLoading(false);
@@ -129,15 +125,7 @@ const Home = () => {
                     )}
                 </Box>
                 <Flex justifyContent="center" alignItems="center" pb="30px">
-                    <Image width="35px" height="35px" alt="Twitter Logo" src={twitterLogo} />
-                    <Link
-                        fontSize="16px"
-                        fontWeight="bold"
-                        color="white"
-                        href={TWITTER_LINK}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >{`built on @${TWITTER_HANDLE}`}</Link>
+                    <Text>&copy; 2021 by John Schlesinger</Text>
                 </Flex>
             </Flex>
         </Box>
