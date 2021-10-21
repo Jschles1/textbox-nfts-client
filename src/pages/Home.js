@@ -9,10 +9,6 @@ import config from '../config';
 
 const { CONTRACT_ADDRESS, TOTAL_MINT_COUNT, NFT_STORAGE_KEY } = config;
 
-// Constants
-const TWITTER_HANDLE = '_buildspace';
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-
 const SubText = (props) => (
     <Text {...props} fontSize="25px">
         {props.children}

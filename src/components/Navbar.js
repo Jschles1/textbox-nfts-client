@@ -125,7 +125,7 @@ const Navbar = () => {
 
     useEffect(() => {
         checkIfWalletIsConnected();
-    }, []);
+    }, [checkIfWalletIsConnected]);
 
     const accountAddress = truncateEthAddress(currentAccount);
 
