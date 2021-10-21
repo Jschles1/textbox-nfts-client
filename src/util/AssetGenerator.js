@@ -1,6 +1,5 @@
 import { File } from 'nft.storage';
 import { firstWords, secondWords, thirdWords, colors } from './constants';
-import api from '../api';
 
 const AssetGenerator = {
     pickRandomWord(words) {
@@ -12,7 +11,10 @@ const AssetGenerator = {
         const third = this.pickRandomWord(thirdWords);
         const combinedWord = first + second + third;
 
-        const mintedNfts = await api.getNFTCollection(contractAddress);
+        const mintedNftsResponse = await fetch(
+            `https://rinkeby-api.opensea.io/api/v1/assets?asset_contract_address=${contractAddress}`
+        );
+        const mintedNfts = await mintedNftsResponse.json();
         let takenNames;
 
         // If NFT was already minted with combinedWord, then generate another word
