@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link as ReactRouterLink, useLocation } from 'react-router-dom';
@@ -125,7 +126,7 @@ const Navbar = () => {
 
     useEffect(() => {
         checkIfWalletIsConnected();
-    }, [checkIfWalletIsConnected]);
+    }, []);
 
     const accountAddress = truncateEthAddress(currentAccount);
 
