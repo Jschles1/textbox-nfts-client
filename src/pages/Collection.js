@@ -36,6 +36,7 @@ const Collection = () => {
             >
                 The Current Textbox NFT Collection
             </Text>
+
             <Text textAlign="center" mb={6} fontSize="24px">
                 Total NFT&apos;s minted: {collectionItems && collectionItems.length}
             </Text>
@@ -46,6 +47,7 @@ const Collection = () => {
                     here.
                 </Link>
             </Text>
+
             <Flex flexWrap="wrap" justifyContent="start">
                 {collectionItems}
             </Flex>

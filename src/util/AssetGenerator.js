@@ -15,6 +15,7 @@ const AssetGenerator = {
             `https://rinkeby-api.opensea.io/api/v1/assets?asset_contract_address=${contractAddress}`
         );
         const mintedNfts = await mintedNftsResponse.json();
+
         let takenNames;
 
         // If NFT was already minted with combinedWord, then generate another word
