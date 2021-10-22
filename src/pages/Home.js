@@ -107,17 +107,20 @@ const Home = () => {
                         bgGradient="linear(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%)"
                         bgClip="text"
                     >
-                        John's NFT Collection (Beta)
+                        Textbox NFT Collection (Beta)
                     </Text>
                     {currentAccount !== '' ? renderMintUI() : renderNotConnectedUI()}
                     {isMinted && (
-                        <SubText mt={8}>
-                            NFT Minted! View your NFT{' '}
-                            <Link target="_blank" rel="noopener noreferrer" href={openSeaLink}>
-                                here
-                            </Link>
-                            .
-                        </SubText>
+                        <>
+                            <SubText my={8}>
+                                NFT Minted! View your NFT{' '}
+                                <Link target="_blank" rel="noopener noreferrer" href={openSeaLink}>
+                                    here
+                                </Link>
+                                .
+                            </SubText>
+                            <SubText>Disclaimer: It may take a few minutes for it to appear on Opensea.</SubText>
+                        </>
                     )}
                 </Box>
                 <Flex justifyContent="center" alignItems="center" pb="30px">
