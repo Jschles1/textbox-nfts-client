@@ -17,6 +17,7 @@ const customTheme = extendTheme({
                 ...theme.styles.global.body,
                 bg: '#0d1116',
                 color: 'white',
+                overflowX: 'hidden',
             },
         }),
     },
