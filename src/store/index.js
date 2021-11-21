@@ -2,7 +2,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import web3Reducer from './reducers/web3Reducer';
 import { mintedNFTsApi } from './api/mintedNFTsApi';
 
-export const createStoreWithSaga = () => {
+export const createStore = () => {
     const store = configureStore({
         reducer: {
             web3: web3Reducer,
@@ -13,6 +13,6 @@ export const createStoreWithSaga = () => {
     return store;
 };
 
-const store = createStoreWithSaga();
+const store = createStore();
 
 export default store;
